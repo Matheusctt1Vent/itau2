@@ -15,13 +15,6 @@ st.set_page_config(
     }
 )
 
-hide_streamlit_style = """
-    <style>
-        footer {visibility: hidden;}
-    </style>
-"""
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 pages = {
     "Navegação": [
         st.Page("organizacoes.py", title="Organizações", icon=":material/corporate_fare:"),
