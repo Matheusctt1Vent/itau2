@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-icone = Image.open("imagens/icone.png")
+icone = Image.open("Fundação Itaú/imagens/icone.png")
 
 st.set_page_config(
     page_title='Fundação Itaú',
@@ -12,13 +12,6 @@ st.set_page_config(
         'Get Help': 'https://www.extremelycoolapp.com/help',
         'Report a bug': "https://www.extremelycoolapp.com/bug",
         'About': "# This is a header. This is an *extremely* cool app!"
-    },
-    theme={
-        "primaryColor": "#F63366",  # Cor principal (rosa claro)
-        "backgroundColor": "#ffffff",  # Cor de fundo (branco)
-        "secondaryBackgroundColor": "#F0F2F6",  # Cor de fundo da sidebar (cinza claro)
-        "textColor": "#000000",  # Cor do texto (preto)
-        "font": "sans serif",  # Tipo de fonte
     }
 )
 
@@ -34,7 +27,7 @@ pages = {
 pg = st.navigation(pages)
 pg.run()
 
-st.logo('.\\imagens\\Logo.png',size='medium',icon_image='.\\imagens\\Logo.png')
+st.logo('Fundação Itaú/imagens/Logo.png',size='medium',icon_image='Fundação Itaú/imagens/Logo.png')
 
 with st.sidebar.popover('Matheus', icon=":material/person:", use_container_width=False):
     col1, col2 = st.columns([1.2, 1])  # coluna da esquerda um pouco maior
@@ -49,3 +42,4 @@ with st.sidebar.popover('Matheus', icon=":material/person:", use_container_width
                 <p style='margin-top: 4px;'>Log out</p>
             </div>
         """, unsafe_allow_html=True)
+        st.write("teste")
