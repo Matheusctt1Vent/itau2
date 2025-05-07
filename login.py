@@ -36,3 +36,5 @@ def mostrar():
             st.rerun()
         else:
             st.error("Usuário ou senha incorretos.")
+
+    st.info("Email: Admin ; Senha: 1234")
