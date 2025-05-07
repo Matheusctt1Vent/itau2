@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.title('Meus Perfis')
+st.header('Meus Perfis', divider=True)
