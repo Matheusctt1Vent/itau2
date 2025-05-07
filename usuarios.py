@@ -13,7 +13,7 @@ data = {
 df = pd.DataFrame(data)
 
 
-st.header('teste', divider=True)
+st.header('Usuários', divider='gray')
 col1, col2 = st.columns([4, 1])
 with col1:
     st.text_input('',placeholder="Pesquisar")
