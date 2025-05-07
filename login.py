@@ -37,4 +37,4 @@ def mostrar():
         else:
             st.error("Usuário ou senha incorretos.")
 
-    st.info("Email: Admin ; Senha: 1234")
+    st.info("Email: admin ; Senha: 1234")
