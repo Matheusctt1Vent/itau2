@@ -1,3 +1,3 @@
 import streamlit as st
 
-st.header('Organizações', divider=True)
+st.header('Organizações', divider='gray')
