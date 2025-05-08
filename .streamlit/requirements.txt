@@ -1,6 +1,6 @@
 streamlit 
 pillow
-streamlit-authenticator
+OAuth2Component
 jose
 requests
 cryptography
