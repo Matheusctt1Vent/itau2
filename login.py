@@ -1,5 +1,5 @@
 import streamlit as st
-from streamlit-authenticator import OAuth2Component
+from streamlit_authenticator import OAuth2Component
 from jose import jwt
 import os
 
