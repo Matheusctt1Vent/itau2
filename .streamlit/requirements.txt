@@ -1,5 +1,6 @@
 streamlit==1.12.0
-git+https://github.com/dnplus/streamlit-oauth
+streamlit-oauth==0.1.14
+
 jose
 requests
 cryptography
