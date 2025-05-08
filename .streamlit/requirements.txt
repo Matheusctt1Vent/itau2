@@ -1,5 +1,5 @@
 streamlit==1.12.0
-streamlit-oauth==0.1.14
+git+https://github.com/dnplus/streamlit-oauth
 pillow
 jose
 requests
