@@ -48,7 +48,7 @@ def mostrar():
     allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
     redirect_uri = "plataforma-itau-testes.streamlit.app" 
 
-    oauth2 = OAuth2Component(
+    oauth2 = streamlit_oauth(
         client_id=client_id,
         client_secret=client_secret,
         authorize_endpoint="https://accounts.google.com/o/oauth2/v2/auth",
