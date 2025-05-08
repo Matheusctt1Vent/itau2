@@ -1,6 +1,6 @@
 streamlit 
 pillow
-streamlit_oauth
+streamlit-authenticator
 jose
 requests
 cryptography
