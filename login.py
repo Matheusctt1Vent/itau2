@@ -1,6 +1,6 @@
 import streamlit as st
 #from streamlit_authenticator import OAuth2Component
-from jose import jwt
+#from jose import jwt
 import os
 
 def mostrar():
