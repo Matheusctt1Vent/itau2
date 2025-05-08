@@ -41,12 +41,12 @@ def mostrar():
 #            st.error("Usuário ou senha incorretos.")
 #
 
-    st.title("Login com Google")
+    st.image("imagens/Logo.png")
     
     client_id = os.getenv("GOOGLE_CLIENT_ID") or st.secrets.get("GOOGLE_CLIENT_ID")
     client_secret = os.getenv("GOOGLE_CLIENT_SECRET") or st.secrets.get("GOOGLE_CLIENT_SECRET")
     allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
-    redirect_uri = "http://localhost:8501"  # ou o domínio do Streamlit Cloud na produção
+    redirect_uri = "plataforma-itau-testes.streamlit.app" 
 
     oauth2 = OAuth2Component(
         client_id=client_id,
