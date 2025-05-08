@@ -4,3 +4,4 @@ streamlit-authenticator
 jose
 requests
 cryptography
+Authlib
