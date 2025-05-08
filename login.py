@@ -1,6 +1,6 @@
 import streamlit as st
-#from streamlit_authenticator import OAuth2Component
-#from jose import jwt
+from streamlit_authenticator import OAuth2Component
+from jose import jwt
 import os
 
 def mostrar():
@@ -48,7 +48,7 @@ def mostrar():
     allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
     redirect_uri = "plataforma-itau-testes.streamlit.app" 
 
-    oauth2 = streamlit_oauth(
+    oauth2 = OAuth2Component(
         client_id=client_id,
         client_secret=client_secret,
         authorize_endpoint="https://accounts.google.com/o/oauth2/v2/auth",
