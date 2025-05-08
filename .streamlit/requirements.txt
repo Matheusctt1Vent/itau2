@@ -1,7 +1,6 @@
-streamlit 
+streamlit==1.12.0
 streamlit-oauth==0.1.14
 pillow
-OAuth2Component
 jose
 requests
 cryptography
