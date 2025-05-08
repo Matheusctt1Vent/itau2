@@ -7,12 +7,11 @@ icone = Image.open("imagens/icone.png")
 
 autenticado = st.session_state.get('autenticado', False)
 
-if not autenticado:
-    st.set_page_config(
+st.set_page_config(
     page_title='Fundação Itaú',
-    page_icon=icone, 
-    layout="centered",
-    initial_sidebar_state='auto',
+    page_icon=icone,
+    layout="wide" if autenticado else "centered",
+    initial_sidebar_state='auto' if autenticado else 'collapsed',
     menu_items={
         'Get Help': 'https://www.extremelycoolapp.com/help',
         'Report a bug': "https://www.extremelycoolapp.com/bug",
@@ -20,18 +19,6 @@ if not autenticado:
     }
 )
 
-else:
-    st.set_page_config(
-    page_title='Fundação Itaú',
-    page_icon=icone, 
-    layout="wide",
-    initial_sidebar_state='auto',
-    menu_items={
-        'Get Help': 'https://www.extremelycoolapp.com/help',
-        'Report a bug': "https://www.extremelycoolapp.com/bug",
-        'About': "# This is a header. This is an *extremely* cool app!"
-    }
-)
 
 if autenticado:
     principal.mostrar()
