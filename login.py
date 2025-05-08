@@ -1,5 +1,5 @@
 import streamlit as st
-import OAuth2Component
+import streamlit_oauth
 from jose import jwt
 import os
 
