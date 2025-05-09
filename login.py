@@ -17,7 +17,9 @@ def mostrar():
     
     client_id = os.getenv("GOOGLE_CLIENT_ID") or st.secrets.get("GOOGLE_CLIENT_ID")
     client_secret = os.getenv("GOOGLE_CLIENT_SECRET") or st.secrets.get("GOOGLE_CLIENT_SECRET")
-    allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
+    allowed_domains_raw = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
+    allowed_domains = [d.strip() for d in allowed_domains_raw.split(",")]
+
     redirect_uri = "https://plataforma-itau-testes.streamlit.app" 
 
     oauth2 = OAuth2Component(
@@ -36,11 +38,11 @@ def mostrar():
             key="google-login"
         )
 
-    if token != None:
-        token2 = token.get("hd")
-        if token2 != allowed_domain:
-            st.error("O acesso a esta plataforma, não esta libearado para este dominio, reinicie a pagina e tente novamente.")
+    if token is not None:
+        token_domain = token.get("hd")
+        if token_domain not in allowed_domains:
+            st.error("O acesso a esta plataforma não está liberado para este domínio. Reinicie a página e tente novamente.")
             return
 
         st.session_state['autenticado'] = True
-        st.rerun() 
+        st.rerun()
