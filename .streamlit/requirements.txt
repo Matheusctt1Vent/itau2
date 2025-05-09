@@ -4,3 +4,4 @@ jose
 requests
 cryptography
 Authlib
+#atualiza caralho
