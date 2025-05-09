@@ -5,42 +5,6 @@ import os
 
 def mostrar():
 
-#    hide_streamlit_style = """
-#    <style>
-#        #MainMenu {visibility: hidden;}
-#        footer {visibility: hidden;}
-#        header {visibility: hidden;}
-#
-#        .stApp {
-#            background-color: #E6F4FF;
-#        }
-#
-#        input[type="text"], input[type="password"] {
-#        background-color: white !important;
-#        color: black !important;
-#        border: 2px solid #b7b7b7 !important;
-#        border-radius: 7px !important;
-#        padding: 10px !important;
-#        }
-#
-#
-#    </style>
-#    """
-#    st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-#    
-#    st.image("imagens/Logo.png")
-#
-#    usuario = st.text_input("Usuário")
-#    senha = st.text_input("Senha", type="password")
-#
-#    if st.button("Entrar"):
-#        if usuario == "admin" and senha == "1234":
-#            st.session_state['autenticado'] = True
-#            st.rerun()
-#        else:
-#            st.error("Usuário ou senha incorretos.")
-#
-
     st.image("imagens/Logo.png")
     
     client_id = os.getenv("GOOGLE_CLIENT_ID") or st.secrets.get("GOOGLE_CLIENT_ID")
@@ -55,7 +19,6 @@ def mostrar():
         token_endpoint="https://oauth2.googleapis.com/token",
     )
     
-    # Adicione um div com estilo para centralizar o botão
     col1, col2, col3 = st.columns([1.8, 3, 1])
     with col2:
         token = oauth2.authorize_button(
@@ -67,10 +30,9 @@ def mostrar():
 
     if token != None:
         token2 = token.get("hd")
-        st.write(token)
         if token2 != allowed_domain:
             st.error("Acesso permitido apenas para contas corporativas.")
             return
 
         st.session_state['autenticado'] = True
-        st.rerun()  # força a página principal a carregar
+        st.rerun() 
