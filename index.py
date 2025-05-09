@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_oauth import OAuth2Component
 import login
 import principal
 from PIL import Image
