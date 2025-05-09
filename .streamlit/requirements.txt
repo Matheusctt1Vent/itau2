@@ -1,8 +1,6 @@
-streamlit
-streamlit_authenticator
-streamlit-authenticator
-jose
-requests
-cryptography
-Authlib
-#atualiza caralho
+pandas==2.2.3
+Pillow==11.2.1
+PyYAML==6.0.2
+PyYAML==6.0.2
+streamlit==1.45.0
+streamlit_authenticator==0.4.2
