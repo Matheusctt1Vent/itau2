@@ -1,6 +1,5 @@
 streamlit==1.12.0
-streamlit-oauth==0.1.14
-
+streamlit_oauth
 jose
 requests
 cryptography
