@@ -46,7 +46,7 @@ def mostrar():
     client_id = os.getenv("GOOGLE_CLIENT_ID") or st.secrets.get("GOOGLE_CLIENT_ID")
     client_secret = os.getenv("GOOGLE_CLIENT_SECRET") or st.secrets.get("GOOGLE_CLIENT_SECRET")
     allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
-    redirect_uri = "https://plataforma-itau-testes.streamlit.app/" 
+    redirect_uri = "https://plataforma-itau-testes.streamlit.app" 
 
     oauth2 = OAuth2Component(
         client_id=client_id,
