@@ -55,28 +55,22 @@ def mostrar():
         token_endpoint="https://oauth2.googleapis.com/token",
     )
     
-    token = oauth2.authorize_button(
-        name="Entrar com Google",
-        redirect_uri=redirect_uri,
-        scope="openid email profile",
-        key="google-login"
-    )
+    # Adicione um div com estilo para centralizar o botão
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        token = oauth2.authorize_button(
+            name="Entrar com Google",
+            redirect_uri=redirect_uri,
+            scope="openid email profile",
+            key="google-login"
+        )
+
     if token != None:
         token2 = token.get("hd")
         st.write(token)
-        #id_token = token2.get("id_token")
-        #if id_token:
-        #    decoded = jwt.decode(id_token, 'secret', algorithms=['RS256'])
-        #    #decoded = jwt.decode(id_token, key='', options={"verify_signature": False})
-        #    st.write("Decoded Token:")
-        #    st.write(decoded)  # Exibe o token decodificado para verificar as claims
-        #    email = decoded.get("email", "")
-        #    domain = email.split("@")[-1]
-        #    st.write(domain)
         if token2 != allowed_domain:
             st.error("Acesso permitido apenas para contas corporativas.")
             return
 
-        #st.success(f"Bem-vindo, {email}!")
         st.session_state['autenticado'] = True
         st.rerun()  # força a página principal a carregar
