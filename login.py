@@ -9,10 +9,6 @@ def mostrar():
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
         header {visibility: hidden;}
-
-        .stApp {
-            background-color: #E6F4FF;
-        }
     </style>
     """
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
