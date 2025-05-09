@@ -56,7 +56,7 @@ def mostrar():
     )
     
     # Adicione um div com estilo para centralizar o botão
-    col1, col2, col3 = st.columns([1, 3, 1])
+    col1, col2, col3 = st.columns([1.8, 3, 1])
     with col2:
         token = oauth2.authorize_button(
             name="Entrar com Google",
