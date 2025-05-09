@@ -39,7 +39,7 @@ def mostrar():
     if token != None:
         token2 = token.get("hd")
         if token2 != allowed_domain:
-            st.error("Acesso permitido apenas para contas corporativas.")
+            st.error("O acesso a esta plataforma, não esta libearado para este dominio, reinicie a pagina e tente novamente.")
             return
 
         st.session_state['autenticado'] = True
