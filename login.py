@@ -2,9 +2,6 @@ import streamlit as st
 from streamlit_oauth import OAuth2Component
 from jose import jwt
 import os
-import streamlit_authenticator as stauth
-import yaml
-from yaml.loader import SafeLoader
 
 def mostrar():
 
@@ -45,24 +42,17 @@ def mostrar():
 #
 
     st.image("imagens/Logo.png")
-
+    
     client_id = os.getenv("GOOGLE_CLIENT_ID") or st.secrets.get("GOOGLE_CLIENT_ID")
     client_secret = os.getenv("GOOGLE_CLIENT_SECRET") or st.secrets.get("GOOGLE_CLIENT_SECRET")
     allowed_domain = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
-    redirect_uri = "plataforma-itau-testes.streamlit.app" 
-    with open('config.yaml') as file:
-        config = yaml.load(file, Loader=SafeLoader)
+    redirect_uri = "http://localhost:8502" 
 
     oauth2 = OAuth2Component(
         client_id=client_id,
         client_secret=client_secret,
         authorize_endpoint="https://accounts.google.com/o/oauth2/v2/auth",
         token_endpoint="https://oauth2.googleapis.com/token",
-    authenticator = stauth.Authenticate(
-        config['credentials'],
-        config['cookie']['name'],
-        config['cookie']['key'],
-        config['cookie']['expiry_days']
     )
     
     token = oauth2.authorize_button(
@@ -88,18 +78,5 @@ def mostrar():
             return
 
         #st.success(f"Bem-vindo, {email}!")
-    try:
-        authenticator.experimental_guest_login('Login with Google',
-                                            provider='google',
-                                            oauth2=config['oauth2'],
-                                            use_container_width=True)
-    except Exception as e:
-        st.error(e)
-
-    if st.session_state.get('authentication_status'):
-        st.session_state['authentication_status'] = None
         st.session_state['autenticado'] = True
         st.rerun()  # força a página principal a carregar
-        st.rerun()
-    elif st.session_state.get('authentication_status') is False:
-        st.error('Este Dominio não esta autorizado, recarregue a pagina e tente novamente!!!')
