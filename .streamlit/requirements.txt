@@ -1,5 +1,6 @@
 streamlit
-streamlit_oauth
+streamlit_authenticator
+streamlit-authenticator
 jose
 requests
 cryptography
