@@ -10,3 +10,4 @@ python_jose
 streamlit
 streamlit_oauth
 Unidecode
+google-auth
