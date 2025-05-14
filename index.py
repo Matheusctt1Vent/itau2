@@ -6,6 +6,8 @@ from PIL import Image
 icone = Image.open("imagens/icone.png")
 
 autenticado = st.session_state.get('autenticado', False)
+acesso = st.session_state.get('acesso', '')
+nomeUsuario = st.session_state.get('nomeUsuario', '')
 
 st.set_page_config(
     page_title='Fundação Itaú',
