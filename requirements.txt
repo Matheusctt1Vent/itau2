@@ -12,3 +12,4 @@ streamlit_oauth
 Unidecode
 google-auth
 openpyxl
+tabulate
