@@ -6,6 +6,7 @@ Pillow
 protobuf
 PyJWT
 python-dotenv
+python_jose
 streamlit
 streamlit_oauth
 Unidecode
