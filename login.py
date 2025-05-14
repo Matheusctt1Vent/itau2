@@ -22,7 +22,7 @@ def mostrar():
     allowed_domains_raw = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
     allowed_domains = [d.strip() for d in allowed_domains_raw.split(",")]
 
-    redirect_uri = "https://plataforma-itau-testes.streamlit.app" 
+    redirect_uri = "http://localhost:8501" 
 
     oauth2 = OAuth2Component(
         client_id=client_id,
@@ -45,14 +45,14 @@ def mostrar():
         id_token2 = tokenTest.get("id_token")
         if id_token:
             decoded = id_token.verify_oauth2_token(id_token2,requests.Request())
-            st.write(decoded)
             domain = decoded.get("hd")
-            nomeUsuario = decoded.get("name")
-            
+            nomeCompUsuario = decoded.get("name")
+            nomeUsuario = decoded.get("given_name")
             if domain not in allowed_domains:
-                st.error("Este domínio não esta permitido nesta plataforma, recarregue a página e tente novamente!!!")
+                st.error("Acesso permitido apenas para contas corporativas.")
                 return
             
         st.session_state['autenticado'] = True
+        st.session_state['nomeCompUsuario'] = nomeCompUsuario
         st.session_state['nomeUsuario'] = nomeUsuario
         st.rerun()
