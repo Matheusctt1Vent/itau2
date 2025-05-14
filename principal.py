@@ -15,7 +15,7 @@ def mostrar():
     pg = st.navigation(pages)
     pg.run()
 
-    st.logo('.\\imagens\\Logo.png',size='medium',icon_image='imagens/Logo.png')
+    st.logo('/imagens/Logo.png',size='Large',icon_image='imagens/Logo.png')
 
     with st.sidebar.popover('User', icon=":material/person:", use_container_width=False):
         col1, col2 = st.columns([1,2])
