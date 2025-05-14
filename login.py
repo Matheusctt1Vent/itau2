@@ -1,5 +1,7 @@
 import streamlit as st
 from streamlit_oauth import OAuth2Component
+from google.oauth2 import id_token
+from google.auth.transport import requests
 from jose import jwt
 import os
 
@@ -37,12 +39,20 @@ def mostrar():
             scope="openid email profile",
             key="google-login"
         )
-
     if token is not None:
-        token_domain = token.get("hd")
-        if token_domain not in allowed_domains:
-            st.error("O acesso a esta plataforma não está liberado para este domínio. Reinicie a página e tente novamente.")
-            return
-
+        
+        tokenTest = token.get("token")
+        id_token2 = tokenTest.get("id_token")
+        if id_token:
+            decoded = id_token.verify_oauth2_token(id_token2,requests.Request())
+            st.write(decoded)
+            domain = decoded.get("hd")
+            nomeUsuario = decoded.get("name")
+            
+            if domain not in allowed_domains:
+                st.error("Este domínio não esta permitido nesta plataforma, recarregue a página e tente novamente!!!")
+                return
+            
         st.session_state['autenticado'] = True
+        st.session_state['nomeUsuario'] = nomeUsuario
         st.rerun()
