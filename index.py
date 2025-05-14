@@ -7,8 +7,8 @@ icone = Image.open("imagens/icone.png")
 
 autenticado = st.session_state.get('autenticado', False)
 acesso = st.session_state.get('acesso', '')
+nomeCompUsuario = st.session_state.get('nomeCompUsuario', '')
 nomeUsuario = st.session_state.get('nomeUsuario', '')
-
 st.set_page_config(
     page_title='Fundação Itaú',
     page_icon=icone,
