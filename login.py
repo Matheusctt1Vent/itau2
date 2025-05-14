@@ -22,7 +22,7 @@ def mostrar():
     allowed_domains_raw = os.getenv("ALLOWED_DOMAIN") or st.secrets.get("ALLOWED_DOMAIN")
     allowed_domains = [d.strip() for d in allowed_domains_raw.split(",")]
 
-    redirect_uri = "http://localhost:8501" 
+    redirect_uri = "https://plataforma-itau-testes.streamlit.app" 
 
     oauth2 = OAuth2Component(
         client_id=client_id,
